@@ -60,9 +60,8 @@ Example:
     grid-template-columns: [first] 40px [line2] 50px [line3] auto [col4-start] 50px [five] 40px [end];
     grid-template-rows: [row1-start] 25% [row1-end] 100px [third-line] auto [last-line];
 }
-
-![Grid Name](./img/grid-names.png)
 ```
+![Grid Name](./img/grid-names.png)
 
 * grid-template-areas - Allow us to populate the grid with grid-area names.
 
@@ -155,20 +154,19 @@ This will create 2 x 2 grid.
 
 Now imagine the following scenario:
 
-This item-a is created within the defined grid
 .item-a {
     grid-column: 1 / 2;
     grid-row: 2 / 3;
 }
+This item-a is created within the defined grid. No problem.
 
-And this item-b is created outside the defined grid
 .item-b {
     grid-column: 5 / 6;
     grid-row: 2 / 3;
 }
-
-![implicit grid](./img/implicit-tracks.png)
+And this item-b is created outside the defined grid as we specificaly set grid-column to fifth column and there is no fifth column in the grid.
 ```
+![implicit grid](./img/implicit-tracks.png)
 
 * grid-auto-flow - This property controls the auto placement of grid items that are not explicitly placed on the grid.
 
@@ -203,19 +201,21 @@ This will create 5 x 2 grid.
 
 Now imagine the following scenario:
 
-item-a is placed in first column and second row
 .item-a {
     grid-column: 1;
     grid-row: 1 / 3;
 }
+item-a is placed in first column and second row
 
-And item-e is placed in fifth column and second row
 .item-e {
   grid-column: 5;
   grid-row: 1 / 3;
 }
+And item-e is placed in fifth column and second row
 
 And the rest are not placed in the grid.
+```
+
 With grid-auto-flow set to row, item-b, item-c, and item-d will be placed as follow
 
 ![implicit grid](./img/grid-auto-flow-row.png)
@@ -223,4 +223,3 @@ With grid-auto-flow set to row, item-b, item-c, and item-d will be placed as fol
 When grid-auto-flow set to column, item-b, item-c, and item-d will be placed as follow
 
 ![implicit grid](./img/grid-auto-flow-column.png)
-```
