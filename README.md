@@ -24,9 +24,6 @@
 ![Grid Term](./img/grid_term.png)
 
 
-> To get started you have to define a container element as a grid and applied `display: grid` property into it, set the column and row sizes with `grid-template-columns` and `grid-template-rows` properties, and then place its child elements into the grid with `grid-column` and `grid-row`.
-
-
 ## Parent Properties
 * display - It defines the element as a grid container and establishes a new grid formatting context for its contents.
 
@@ -76,16 +73,89 @@ where:
     * none - Use to signify no grid area are defined
 ```
 
-Add in child properties here:
-grid-column
-grid-row
+## Children Properties
+* grid-column-start,
+* grid-column-end,
+* grid-row-start,
+* grid-row-end - These four properties determine a grid item's location within the grid by referring to specific grid lines. grid-column-start and grid-row-start determines the line where the grid item begins, and grid-column-end and grid-row-end determines the line where the grid item ends.
 
+```grid-item-start-end
+.item {
+    grid-column-start: <line number> | <line name> | span <number> | span <name> | auto
+    grid-column-end:   <line number> | <line name> | span <number> | span <name> | auto
+    grid-row-start:    <line number> | <line name> | span <number> | span <name> | auto
+    grid-row-end:      <line number> | <line name> | span <number> | span <name> | auto
+}
+
+where:
+    * line number - Any line number that refers to a valid numbered grid line
+    * line name - Any line name that refers to a valid named grid line
+    * span number - The number indicates the item will span across the the provided number of grid tracks
+    * span name - The grid item will span across until it reaches the line with the provided name
+    * auto - Indicates auto-placement
+
+Example:
+.item-a {
+    grid-column-start: 1;
+    grid-column-end: 3;
+    grid-row-start: 1;
+    grid-row-end: 2;
+}
+This will create an item occupying 2 columns by 1 row on the grid
+```
+
+* grid-column - Shorthand for grid-column-start and grid-column-end
+* grid-row - Shorthand for grid-row-start and grid-row-end
+
+```grid-col-row
+.item {
+    grid-column: <start line number> | <end line number>
+    grid-row:    <start line number> | <end line number>
+}
+
+where:
+    * line number - Any line number that refers to a valid numbered grid line
+
+Example:
+.item-a {
+    grid-column: 1 / 3;
+    grid-row-start: 1 / 2;
+}
+This will create an item occupying 2 columns by 1 row on the grid
+```
+
+* grid-area - It can either give an item a name to be placed within the grid template or it can act as a shorthand for grid-row-start + grid-column-start + grid-row-end + grid-column-end
+
+```grid-area
+.item {
+    grid-area: <name> | <row start> / <column start> / <row end> / <column end>
+}
+
+where:
+    * name - Any name we choose
+    * row start /
+      column start - Starting row and column line number that refers to a valid numbered grid line
+    * row end /
+      column end - Ending row and column line number that refers to a valid numbered grid line
+
+Example:
+.item-a {
+    grid-area: header;
+}
+This example named an item as header to be used in grid-template-areas
+
+.item-a {
+    grid-area: 1 / 1 / 2 / 3;
+}
+This example will create an item occupying 2 columns by 1 row on the grid
+```
+
+### Parent Properties (Continue.....)
 * grid-template - A shorthand for setting grid-template-rows, grid-template-columns, and grid-template-areas in a single declaration.
 
 ```grid-template
 .container {
-    grid-template-areas: none | <grid-template-rows> / <grid-template-columns> | subgrid
-                         <line-names> <grid areas string> <track size> <line-names> / <explicit-track-list>;
+    grid-template: none | <grid-template-rows> / <grid-template-columns> | subgrid;
 }
 
 where:
@@ -166,7 +236,8 @@ This item-a is created within the defined grid. No problem.
 }
 And this item-b is created outside the defined grid as we specificaly set grid-column to fifth column and there is no fifth column in the grid.
 ```
-![implicit grid](./img/implicit-tracks.png)
+![implicit track](./img/implicit-tracks.png)
+
 
 * grid-auto-flow - This property controls the auto placement of grid items that are not explicitly placed on the grid.
 
@@ -218,8 +289,72 @@ And the rest are not placed in the grid.
 
 With grid-auto-flow set to row, item-b, item-c, and item-d will be placed as follow
 
-![implicit grid](./img/grid-auto-flow-row.png)
+![auto flow row](./img/grid-auto-flow-row.png)
 
 When grid-auto-flow set to column, item-b, item-c, and item-d will be placed as follow
 
-![implicit grid](./img/grid-auto-flow-column.png)
+![auto flow col](./img/grid-auto-flow-column.png)
+
+### Miscellaneous Properties
+* justify-items - This property aligns content inside a grid item along the row axis
+* align-items   - This property aligns content inside a grid item along the column axis
+
+Note: The above properties apply to all grid items inside the container.
+
+```justify-align-items
+.container {
+    justify-items: start | end | center | stretch;
+}
+
+where:
+    * start   - Aligns the content to the left end side of the grid area
+    * end     - Aligns the content to the right end side of the grid area
+    * center  - Aligns the content in the center of the grid area
+    * stretch - Fills the entire width of the grid area (default setting)
+
+.container {
+    align-items: start | end | center | stretch;
+}
+
+where:
+    * start   - Aligns the content to the top of the grid area
+    * end     - Aligns the content to the bottom of the grid area
+    * center  - Aligns the content in the center of the grid area
+    * stretch - Fills the entire height of the grid area (default setting)
+```
+
+> Sometimes when we define the size of the grid items using non-flexible units like in pixel, we will encounter a situation where the total size of the grid might be less than the size of its grid container. In this case we can set the alignment of the grid items within the grid container using the following two properties.
+
+* justify-content - This property aligns the grid along the row axis
+* align-content   - This property aligns the grid along the column axis
+
+```justify-align-content
+.container {
+    justify-content: start | end | center | stretch | space-around | space-between | space evenly;
+}
+
+where:
+    * start         - Aligns the grid to the left end side of the grid container
+    * end           - Aligns the grid to the right end side of the grid container
+    * center        - Aligns the grid in the center of the grid container
+    * stretch       - Resizes the grid items to allow the grid to fill the full `width` of the grid container
+    * space-around  - Places an even amount of space between each grid item with half-sized spaces on the far ends
+    * space-between - Places an even amount of space between each grid item with no space at the far ends
+    * space-evenly  - Places an even amount of space between each grid item including the far ends
+
+.container {
+    align-content: start | end | center | stretch | space-around | space-between | space-evenly;
+}
+
+where:
+    * start         - Aligns the grid to the top of the grid container
+    * end           - Aligns the grid to the bottom of the grid container
+    * center        - Aligns the grid to the center of the grid container
+    * stretch       - Resizes the grid items to allow the grid to fill the full `height` of the grid container
+    * space-around  - Places an even amount of space between each grid item with half-sized spaces on the far ends
+    * space-between - Places an even amount of space between each grid item with no space at the far ends
+    * space-evenly  - Places an even amount of space between each grid item including the far ends
+```
+
+> To get started you have to define a container element as a grid and applied `display: grid` property into it, set the column and row sizes with `grid-template-columns` and `grid-template-rows` properties, and then place its child elements into the grid with `grid-column` and `grid-row`.
+
