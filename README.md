@@ -33,13 +33,13 @@
 }
 
 where value:
-    * grid - generates a block-level grid
+    * grid        - generates a block-level grid
     * inline-grid - generates an inline-level grid
-    * subgrid - if the grid container is a nested grid, this property indicates that the sizes of its rows / columns are to be taken from its parent
+    * subgrid     - if the grid container is a nested grid, this property indicates that the sizes of its rows / columns are to be taken from its parent
 ```
 
 * grid-template-columns - List of space-separated values that defines the width of the columns
-* grid-template-rows - List of space-separated values that defines the width of the rows
+* grid-template-rows    - List of space-separated values that defines the width of the rows
 
 ```grid-template-col-row
 .container {
@@ -49,7 +49,7 @@ where value:
 
 where:
     * track-size - Can be a length in px, a percentage, or fraction (fr) of the free space in the grid
-    * line-name - Arbitrary name to represent the name of the grid line
+    * line-name  - Arbitrary name to represent the name of the grid line
 
 Example:
 
@@ -89,10 +89,10 @@ where:
 
 where:
     * line number - Any line number that refers to a valid numbered grid line
-    * line name - Any line name that refers to a valid named grid line
-    * span number - The number indicates the item will span across the the provided number of grid tracks
-    * span name - The grid item will span across until it reaches the line with the provided name
-    * auto - Indicates auto-placement
+    * line name   - Any line name that refers to a valid named grid line
+    * span number - The number indicates the item will span across the provided number of grid tracks
+    * span name   - The grid item will span across until it reaches the line with the provided name
+    * auto        - Indicates auto-placement
 
 Example:
 .item-a {
@@ -105,7 +105,7 @@ This will create an item occupying 2 columns by 1 row on the grid
 ```
 
 * grid-column - Shorthand for grid-column-start and grid-column-end
-* grid-row - Shorthand for grid-row-start and grid-row-end
+* grid-row    - Shorthand for grid-row-start and grid-row-end
 
 ```grid-col-row
 .item {
@@ -132,11 +132,11 @@ This will create an item occupying 2 columns by 1 row on the grid
 }
 
 where:
-    * name - Any name we choose
+    * name         - Any name we choose
     * row start /
       column start - Starting row and column line number that refers to a valid numbered grid line
     * row end /
-      column end - Ending row and column line number that refers to a valid numbered grid line
+      column end   - Ending row and column line number that refers to a valid numbered grid line
 
 Example:
 .item-a {
@@ -183,8 +183,8 @@ The above declaration, is the same as below declaration using longhand:
 ```
 
 * grid-column-gap - Specifies the size of the column lines
-* grid-row-gap - Specifies the size of the row lines
-* grid-gap - Shorthand to do grid-row-gap and grid-column-gap in a single declaration
+* grid-row-gap    - Specifies the size of the row lines
+* grid-gap        - Shorthand to do grid-row-gap and grid-column-gap in a single declaration
 
 ```grid-col-row-gap
 .container {
@@ -247,9 +247,9 @@ And this item-b is created outside the defined grid as we specificaly set grid-c
 }
 
 where:
-    * row - The auto-placement algorithm will fill in each row in turn, adding new rows as necessary. This is the default
+    * row    - The auto-placement algorithm will fill in each row in turn, adding new rows as necessary. This is the default
     * column - The auto-placement algorithm will fill in each column in turn, adding new columns as necessary
-    * dense - The auto-placement algorithm will attempt to fill in holes earlier in the grid if smaller items come up later
+    * dense  - The auto-placement algorithm will attempt to fill in holes earlier in the grid if smaller items come up later
 
 Example:
 
@@ -356,5 +356,5 @@ where:
     * space-evenly  - Places an even amount of space between each grid item including the far ends
 ```
 
-> To get started you have to define a container element as a grid and applied `display: grid` property into it, set the column and row sizes with `grid-template-columns` and `grid-template-rows` properties, and then place its child elements into the grid with `grid-column` and `grid-row`.
+> To get started with the exercise, you have to define a container element as a grid and applied `display: grid` property into it, set the column and row sizes with `grid-template-columns` and `grid-template-rows` properties, and then place its child elements into the grid with `grid-column` and `grid-row`; once you have the grid created, apply the justify-items, align-items, justify-content, and align-content properties and see the effect.
 
