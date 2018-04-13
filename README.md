@@ -6,7 +6,7 @@
 
 ## Terminology
 * Grid Container - The element on which `display: grid` property is applied. It's the direct parent of all the grid items.
-* Grid Item - Each child element placed in the grid container.
+* Grid Item      - Each child element placed in the grid container.
 
 **Example:**
 ```html
@@ -16,10 +16,10 @@
     <div class="Item 3">Child of container</div>
 </div>
 ```
-* Grid Line - The dividing lines that make up the structure of the grid.
+* Grid Line  - The dividing lines that make up the structure of the grid.
 * Grid Track - The space between two adjacent grid lines.
-* Grid Cell - The space between two adjacent row grid lines and two adjacent column grid lines.
-* Grid Area - A cell or multiple cells that mark the space in which a grid item will be placed.
+* Grid Cell  - The space between two adjacent row grid lines and two adjacent column grid lines.
+* Grid Area  - A cell or multiple cells that mark the space in which a grid item will be placed.
 
 ![Grid Term](./img/grid_term.png)
 
