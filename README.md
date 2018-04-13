@@ -159,9 +159,16 @@ This example will create an item occupying 2 columns by 1 row on the grid
 }
 
 where:
-    * none - Sets all three longhand properties to none. No named grid areas are defined, and rows and columns will be implicitly generated. Their size will be determined by the grid-auto-rows and grid-auto-columns properties
-    * <grid-template-rows> / <grid-template-columns> - Sets the grid-template-rows and grid-template-columns to the specified values, and sets grid-template-areas to none.
-    * subgrid - Sets grid-template-rows, grid-template-columns, and grid-template-areas with the following format: <line-names> <grid areas string> <track size> <line-names> / <explicit-track-list>
+    * none - Sets all three longhand properties to none. No named grid areas are defined, 
+             and rows and columns will be implicitly generated. Their size will be determined 
+             by the grid-auto-rows and grid-auto-columns properties
+    * <grid-template-rows> / <grid-template-columns> 
+           - Sets the grid-template-rows and grid-template-columns to the specified values, 
+             and sets grid-template-areas to none.
+    * subgrid 
+           - Sets grid-template-rows, grid-template-columns, and grid-template-areas with the 
+             following format: 
+             <line-names> <grid areas string> <track size> <line-names> / <explicit-track-list>
 
 Example:
 
@@ -234,7 +241,8 @@ This item-a is created within the defined grid. No problem.
     grid-column: 5 / 6;
     grid-row: 2 / 3;
 }
-And this item-b is created outside the defined grid as we specificaly set grid-column to fifth column and there is no fifth column in the grid.
+And this item-b is created outside the defined grid as we specificaly set grid-column to 
+fifth column and there is no fifth column in the grid.
 ```
 ![implicit track](./img/implicit-tracks.png)
 
@@ -247,9 +255,12 @@ And this item-b is created outside the defined grid as we specificaly set grid-c
 }
 
 where:
-    * row    - The auto-placement algorithm will fill in each row in turn, adding new rows as necessary. This is the default
-    * column - The auto-placement algorithm will fill in each column in turn, adding new columns as necessary
-    * dense  - The auto-placement algorithm will attempt to fill in holes earlier in the grid if smaller items come up later
+    * row    - The auto-placement algorithm will fill in each row in turn, adding new rows 
+               as necessary. This is the default
+    * column - The auto-placement algorithm will fill in each column in turn, adding new 
+               columns as necessary
+    * dense  - The auto-placement algorithm will attempt to fill in holes earlier in the grid 
+               if smaller items come up later
 
 Example:
 
@@ -337,9 +348,12 @@ where:
     * start         - Aligns the grid to the left end side of the grid container
     * end           - Aligns the grid to the right end side of the grid container
     * center        - Aligns the grid in the center of the grid container
-    * stretch       - Resizes the grid items to allow the grid to fill the full `width` of the grid container
-    * space-around  - Places an even amount of space between each grid item with half-sized spaces on the far ends
-    * space-between - Places an even amount of space between each grid item with no space at the far ends
+    * stretch       - Resizes the grid items to allow the grid to fill the full `width` of 
+                      the grid container
+    * space-around  - Places an even amount of space between each grid item with half-sized 
+                      spaces on the far ends
+    * space-between - Places an even amount of space between each grid item with no space at 
+                      the far ends
     * space-evenly  - Places an even amount of space between each grid item including the far ends
 
 .container {
@@ -350,9 +364,12 @@ where:
     * start         - Aligns the grid to the top of the grid container
     * end           - Aligns the grid to the bottom of the grid container
     * center        - Aligns the grid to the center of the grid container
-    * stretch       - Resizes the grid items to allow the grid to fill the full `height` of the grid container
-    * space-around  - Places an even amount of space between each grid item with half-sized spaces on the far ends
-    * space-between - Places an even amount of space between each grid item with no space at the far ends
+    * stretch       - Resizes the grid items to allow the grid to fill the full `height` of 
+                      the grid container
+    * space-around  - Places an even amount of space between each grid item with half-sized 
+                      spaces on the far ends
+    * space-between - Places an even amount of space between each grid item with no space at 
+                      the far ends
     * space-evenly  - Places an even amount of space between each grid item including the far ends
 ```
 
