@@ -35,7 +35,8 @@
 where value:
     * grid        - generates a block-level grid
     * inline-grid - generates an inline-level grid
-    * subgrid     - if the grid container is a nested grid, this property indicates that the sizes of its rows / columns are to be taken from its parent
+    * subgrid     - if the grid container is a nested grid, this property indicates that the 
+                    sizes of its rows / columns are to be taken from its parent
 ```
 
 * grid-template-columns - List of space-separated values that defines the width of the columns
@@ -119,7 +120,7 @@ where:
 Example:
 .item-a {
     grid-column: 1 / 3;
-    grid-row-start: 1 / 2;
+    grid-row   : 1 / 2;
 }
 This will create an item occupying 2 columns by 1 row on the grid
 ```
@@ -182,10 +183,10 @@ Example:
 The above declaration, is the same as below declaration using longhand:
 
 .container {
-    grid-template-rows: [row1-start] 25px [row1-end row2-start] 25px [row2-end];
+    grid-template-rows:    [row1-start] 25px [row1-end row2-start] 25px [row2-end];
     grid-template-columns: auto 50px auto;
-    grid-template-areas: "header header header" 
-                         "footer footer footer";
+    grid-template-areas:   "header header header" 
+                           "footer footer footer";
 }
 ```
 
